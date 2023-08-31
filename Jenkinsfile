@@ -17,7 +17,8 @@ pipeline {
                     usernameVariable: "dockerhubUser"
                 )]) {
                     bat "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPass}"
-                }    
+                }   
+                bat 'docker ps' 
                 bat 'docker tag phpwebserver:latest budhaujjwal/php-webserver:v9'
                 bat 'docker push budhaujjwal/php-webserver:v9' 
             }
