@@ -23,14 +23,21 @@ pipeline {
         //         bat 'docker push budhaujjwal/php-webserver:v9' 
         //     }
         // }
-        stage("deploying on kubernetes") {
-            steps {
-                bat 'ssh ujjwal@172.25.21.114 "kubectl get pods"'
+        // stage("deploying on kubernetes") {
+        //     steps {
+        //         bat 'ssh ujjwal@172.25.21.114 "kubectl get pods"'
                 
                 
                 
-            }
-        }
+        //     }
+        // }
+        stage('SSH to Remote') {
+    steps {
+        bat '''
+        ssh -i "/c/Users/ujjwa/.ssh/id_rsa" ujjwal@172.25.21.114 "kubectl get pods"
+        '''
+    }
+}
         
     }
 }
