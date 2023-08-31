@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("Build Nodejs Image") {
+        stage("Build php webapp") {
             steps {
                 bat 'docker build -t php-webserver .'
                 bat 'docker images'
