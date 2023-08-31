@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: php01
+        labels:
+                app: php 
+                type: frontend
+spec:
+        containers:
+        - name: php01
+          image: susigugh/phphttp:0.0 
