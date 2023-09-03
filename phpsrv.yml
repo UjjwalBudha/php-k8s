@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: php-app-service-loadbalancer
+  labels:
+    app: php01
+  name: php01-srv
 spec:
-  selector:
-    app: php  # This should match the label of your PHP pod
   ports:
-    - protocol: TCP
-      port: 8088
-      targetPort: 80
-  type: LoadBalancer
+  - protocol: TCP
+    port: 8089
+    targetPort: 80
+  selector:
+    app: php
+  type: LoadBalancer
